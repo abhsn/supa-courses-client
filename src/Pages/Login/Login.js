@@ -1,8 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 function Login() {
+
+	const { signIn, setUser } = useContext(AuthContext);
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		const form = e.target;
+		const email = form.email.value;
+		const password = form.password.value;
+		signIn(email, password)
+			.then(result => {
+				setUser(result.user);
+			})
+			.catch(err => console.error(err));
+	}
+
 	return (
-		<form className="grid place-content-center gap-8 p-6 w-1/2 mx-auto">
+		<form onSubmit={handleSubmit} className="grid place-content-center gap-8 p-6 w-1/2 mx-auto">
 			<h3 className="text-center text-4xl">Login</h3>
 			<div className="grid place-content-center gap-4">
 				<div>
