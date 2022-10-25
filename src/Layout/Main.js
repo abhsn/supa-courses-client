@@ -9,7 +9,7 @@ function Main() {
 				<div className="sticky top-0">
 					<Header />
 				</div>
-				<div className="px-16 py-8">
+				<div className="py-8">
 					<Outlet />
 				</div>
 			</div>
