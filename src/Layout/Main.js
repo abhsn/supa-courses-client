@@ -6,8 +6,10 @@ function Main() {
 	return (
 		<React.Fragment>
 			<div className="flex flex-col h-full">
-				<Header />
-				<div className="grid place-content-center flex-grow">
+				<div className="sticky top-0">
+					<Header />
+				</div>
+				<div className="px-16 py-8">
 					<Outlet />
 				</div>
 			</div>
