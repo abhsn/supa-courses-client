@@ -18,7 +18,7 @@ function Register() {
 				setUser(result.user);
 				updateUserProfile(name, url)
 					.then(() => {
-						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render
+						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render. simply by doing this header shows image after registering
 						const newUserObj = { ...result.user };
 						setUser(newUserObj);
 					})
