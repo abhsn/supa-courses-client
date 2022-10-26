@@ -6,7 +6,6 @@ function App() {
 	return (
 		<React.Fragment>
 			<RouterProvider router={routes}>
-
 			</RouterProvider>
 		</React.Fragment>
 	);

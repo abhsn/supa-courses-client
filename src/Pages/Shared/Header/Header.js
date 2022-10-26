@@ -4,7 +4,8 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { FcGraduationCap } from "react-icons/fc";
 
 function Header() {
-	const { user, logOut } = useContext(AuthContext);
+	const { user, logOut, darkTheme, setDarkTheme } = useContext(AuthContext);
+	console.log(darkTheme);
 
 	const handleLogOut = () => {
 		logOut()
@@ -15,7 +16,8 @@ function Header() {
 	return (
 		<div className="navbar bg-base-300 flex items-center">
 			<Link to="/" className="btn btn-ghost normal-case text-xl flex gap-2"><span className="text-4xl"><FcGraduationCap /></span>Supa Courses</Link>
-			<Link to="/courses" className="btn btn-ghost normal-case text-xl ml-auto">Courses</Link>
+			<input onClick={() => setDarkTheme(!darkTheme)} checked={darkTheme} type="checkbox" className={`mr-4 ml-auto toggle toggle-lg bg-slate-400 checked:bg-slate-400 checked:border-slate-400 relative ${(darkTheme) ? "before:content-['🌞'] before:left-[2px] before:absolute before:text-2xl" : "after:content-['🌙'] after:absolute after:text-2xl after:right-[2px]"}`} />
+			<Link to="/courses" className="btn btn-ghost normal-case text-xl">Courses</Link>
 			<Link to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
 			<Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
 			{
@@ -30,7 +32,7 @@ function Header() {
 					</div>
 					: <Link to="/login" className="btn btn-ghost normal-case text-xl">Login</Link>
 			}
-		</div>
+		</div >
 	);
 }
 

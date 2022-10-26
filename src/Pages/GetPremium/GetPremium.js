@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { PrivateContext } from "../PrivateRoute/PrivateRoute";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function GetPremium() {
 	const course = useContext(PrivateContext);
 	const { name, price } = course;
 	const navigate = useNavigate();
+	const [isDate, setIsDate] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -23,7 +25,7 @@ function GetPremium() {
 						<input type="text" placeholder="Name on card" className="input col-start-1 col-end-4 border-2 border-slate-500 rounded-none border-l-0 border-t-0 border-r-0 focus:outline-none px-0" />
 						<br />
 						<input type="number" placeholder="Card number" className="col-start-1 input border-2 border-slate-500 rounded-none border-l-0 border-t-0 border-r-0 focus:outline-none px-0" />
-						<input type="text" placeholder="Expiry" className="col-start-2 input border-2 border-slate-500 rounded-none border-l-0 border-t-0 border-r-0 focus:outline-none px-0" />
+						<input type={(isDate) ? "date" : "text"} onFocus={() => setIsDate(true)} onBlur={() => setIsDate(false)} placeholder="Expiry" className="col-start-2 input border-2 border-slate-500 rounded-none border-l-0 border-t-0 border-r-0 focus:outline-none px-0" />
 						<input type="number" placeholder="CVV" className="col-start-3 input border-2 border-slate-500 rounded-none border-l-0 border-t-0 border-r-0 focus:outline-none px-0" />
 					</div>
 				</div>
