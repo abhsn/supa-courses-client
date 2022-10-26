@@ -30,7 +30,7 @@ function Course({ course }) {
 	}
 
 	return (
-		<div onClick={handleNavigate} className="flex flex-col [box-shadow:10px_10px_25px_#ffffff1a] hover:[box-shadow:10px_10px_25px_#ffffff33] hover:cursor-pointer rounded-md">
+		<div onClick={handleNavigate} className="flex flex-col  hover:cursor-pointer rounded-md border border-slate-600">
 			<img src={img} alt={name} className="object-cover rounded-md rounded-bl-none rounded-br-none" />
 			<div className="p-4">
 				<h4 className="text-xl font-bold">{name}</h4>
@@ -42,7 +42,6 @@ function Course({ course }) {
 							starArray.map((star, idx) => <span key={idx} className='text-amber-500'>{star}</span>)
 						}
 					</span>
-					{/* <p><small><FaStar /></small></p> */}
 				</div>
 				<p className="font-bold"><small>${price}</small></p>
 			</div>

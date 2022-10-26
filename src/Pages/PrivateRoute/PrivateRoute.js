@@ -8,14 +8,15 @@ function PrivateRoute({ children }) {
 
 
 	const [course] = useLoaderData();
-	console.log(course);
 
 	const { user, loading } = useContext(AuthContext);
 	const location = useLocation();
 
 	if (loading) {
 		return (
-			<span>loading...</span>
+			<div className="grid place-content-center animate-spin max-h-screen">
+				<div className="radial-progress" style={{ "--value": "70", "--size": "12rem", "--thickness": "2rem" }}></div>
+			</div>
 		);
 	} else {
 		if (user) {

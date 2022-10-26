@@ -11,7 +11,7 @@ const auth = getAuth(app);
 function AuthProvider({ children }) {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
-	const [darkTheme, setDarkTheme] = useState(true);
+
 
 	const signUp = (email, password) => {
 		setLoading(true);
@@ -47,7 +47,7 @@ function AuthProvider({ children }) {
 		return () => unSubscribe;
 	}, []);
 
-	const authinfo = { user, setUser, loading, signUp, signIn, updateUserProfile, logOut, darkTheme, setDarkTheme }
+	const authinfo = { user, setUser, loading, signUp, signIn, updateUserProfile, logOut }
 
 	return (
 		<AuthContext.Provider value={authinfo}>
