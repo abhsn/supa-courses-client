@@ -12,7 +12,10 @@ function Header() {
 			<Link to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
 			<Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
 			{
-				user ? <img src={user?.photoURL} className="w-10 h-10 object-cover rounded-full ml-2" alt={user.displayName} />
+				user ?
+					<div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+						<img src={user?.photoURL} className="w-10 h-10 object-cover rounded-full mx-2" alt={user.displayName} />
+					</div>
 					: <Link to="/login" className="btn btn-ghost normal-case text-xl">Login</Link>
 			}
 		</div>
