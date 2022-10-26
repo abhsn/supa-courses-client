@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { FcGraduationCap } from "react-icons/fc";
 
 function Header() {
 	const { user, logOut } = useContext(AuthContext);
@@ -13,7 +14,7 @@ function Header() {
 
 	return (
 		<div className="navbar bg-base-300 flex items-center">
-			<Link to="/" className="btn btn-ghost normal-case text-xl">Supa Courses</Link>
+			<Link to="/" className="btn btn-ghost normal-case text-xl flex gap-2"><span className="text-4xl"><FcGraduationCap /></span>Supa Courses</Link>
 			<Link to="/courses" className="btn btn-ghost normal-case text-xl ml-auto">Courses</Link>
 			<Link to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
 			<Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
