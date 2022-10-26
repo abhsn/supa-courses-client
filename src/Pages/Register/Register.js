@@ -4,18 +4,28 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 function Register() {
 
-	const { signUp, setUser } = useContext(AuthContext);
+	const { signUp, setUser, updateUserProfile } = useContext(AuthContext);
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
+		const name = form.fullName.value;
+		const url = form.photoURL.value;
 		signUp(email, password)
 			.then(result => {
 				setUser(result.user);
+				updateUserProfile(name, url)
+					.then(() => {
+						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render
+						const newUserObj = { ...result.user };
+						setUser(newUserObj);
+					})
+					.catch(err => console.error(err));
 			})
 			.catch(err => console.error(err));
+
 	}
 
 	return (
