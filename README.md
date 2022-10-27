@@ -20,9 +20,9 @@ Here's the top feature of this website
 
 ### Technologies
 Framework/library that I used in this website
-* React
-* Firebase
-* React Router DOM
-* TailwindCSS
-* daisyUI
-* React PDF
+* [React](https://reactjs.org/)
+* [Firebase](https://firebase.google.com/)
+* [React Router](https://reactrouter.com/)
+* [TailwindCSS](https://tailwindcss.com/)
+* [daisyUI](https://daisyui.com/)
+* [React PDF](https://react-pdf.org/)
