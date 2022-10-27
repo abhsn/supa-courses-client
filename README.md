@@ -1,9 +1,9 @@
 # Supa Courses
 
 Contents
-* [Live Website](###live-website)
-* [Features](###features)
-* [Technologies](###technologies)
+* [Live Website](#live-website)
+* [Features](#features)
+* [Technologies](#technologies)
 
 ### Live Website
 To have the live experience what it looks like. Please [click here](https://creative-wisp-3681ca.netlify.app "Supa Courses")
