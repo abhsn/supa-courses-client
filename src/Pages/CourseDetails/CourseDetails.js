@@ -41,7 +41,7 @@ function CourseDetails() {
 				</div>
 				<img src={img} alt={name} className="w-9/12 mx-auto" />
 				<div className="flex gap-4">
-					<button onClick={() => navigate(-1)} className='btn btn'>Go Back</button>
+					<button onClick={() => navigate(-1)} className='btn'>Go Back</button>
 					<Link to={`/get_premium/${id}`} className='btn text-amber-600 flex gap-2'><span className="text-xl"><FaCrown /></span>Get premium access</Link>
 				</div>
 			</div>
