@@ -4,20 +4,33 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Pages/Shared/Header/Header";
 
-export const ThemeContext = createContext();
+export const AppearanceContext = createContext();
 
 function Main() {
 	const [darkTheme, setDarkTheme] = useState(true);
-
-	const themeInfo = { darkTheme, setDarkTheme };
+	const [mobile, setMobile] = useState(false);
 
 	useEffect(() => {
-		const theme = localStorage.getItem('theme');
-		if (theme) setDarkTheme(JSON.parse(theme).darkTheme);
+		window.innerWidth <= 640 ? setMobile(true) : setMobile(false);
+	}, [])
+
+	useEffect(() => {
+		window.addEventListener('resize', () => {
+			window.innerWidth <= 640 ? setMobile(true) : setMobile(false);
+		});
 	}, []);
 
+	useEffect(() => {
+		return () => {
+			const theme = localStorage.getItem('theme');
+			if (theme) setDarkTheme(JSON.parse(theme).darkTheme);
+		}
+	}, []);
+
+	const appearanceInfo = { darkTheme, setDarkTheme, mobile };
+
 	return (
-		<ThemeContext.Provider value={themeInfo}>
+		<AppearanceContext.Provider value={appearanceInfo}>
 			<div className="flex flex-col min-h-screen h-full" data-theme={darkTheme ? 'night' : 'cupcake'}>
 				<div className="sticky top-0">
 					<Header />
@@ -26,7 +39,7 @@ function Main() {
 					<Outlet />
 				</div>
 			</div>
-		</ThemeContext.Provider>
+		</AppearanceContext.Provider>
 	);
 }
 

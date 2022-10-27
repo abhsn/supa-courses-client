@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../Layout/Main";
+import { AppearanceContext } from "../../Layout/Main";
 
 function Blog() {
-	const { darkTheme } = useContext(ThemeContext);
+	const { darkTheme } = useContext(AppearanceContext);
 	const headerClassName = `text-2xl mb-2 font-bold ${(darkTheme) ? 'text-white' : 'text-blue-500'}`;
 	return (
 		<div className="flex flex-col gap-8">
