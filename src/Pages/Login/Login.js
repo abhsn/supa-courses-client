@@ -4,26 +4,44 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 function Login() {
 
-	const { signIn, setUser } = useContext(AuthContext);
+	const { signIn, googleSignIn } = useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const from = location.state?.from?.pathname || "/";
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		const form = e.target;
-		const email = form.email.value;
-		const password = form.password.value;
+	// const handleSubmit = e => {
+	// 	e.preventDefault();
+	// 	const form = e.target;
+	// 	const email = form.email.value;
+	// 	const password = form.password.value;
+	// 	signIn(email, password)
+	// 		.then(result => {
+	// 			setUser(result.user);
+	// 			navigate(from, { replace: true });
+	// 		})
+	// 		.catch(err => console.error(err));
+	// }
+
+	const logIn = () => {
+		const email = document.getElementById('email').value;
+		const password = document.getElementById('password').value;
 		signIn(email, password)
-			.then(result => {
-				setUser(result.user);
+			.then(() => {
+				// no need since onAuthStateChange is running
+				// setUser(result.user);
 				navigate(from, { replace: true });
 			})
 			.catch(err => console.error(err));
 	}
 
+	const logInWithGoogle = () => {
+		googleSignIn()
+			.then(() => navigate(from, { replace: true }))
+			.catch(err => console.error(err));
+	}
+
 	return (
-		<form onSubmit={handleSubmit} className="grid place-content-center gap-8 p-6 w-1/2 mx-auto">
+		<form onSubmit={(e) => e.preventDefault()} className="grid place-content-center gap-8 p-6 w-1/2 mx-auto">
 			<h3 className="text-center text-4xl">Login</h3>
 			<div className="grid place-content-center gap-4">
 				<div>
@@ -34,7 +52,8 @@ function Login() {
 					<label htmlFor="password">Password</label>
 					<input id="password" type="password" placeholder="Password" name="password" className="input input-bordered input-info w-full max-w-xs" />
 				</div>
-				<button className="btn glass">Login</button>
+				<button onClick={logIn} className="btn">Login</button>
+				<button onClick={logInWithGoogle} className="btn btn-secondary">Login with Google</button>
 			</div>
 			<span className="text-center"><small>Don't have an account? <Link to='/register' className="btn-link">Register here</Link>.</small></span>
 		</form>

@@ -21,7 +21,7 @@ function Header({ darkTheme, setDarkTheme }) {
 		} else {
 			setSkip(false);
 		}
-	}, [darkTheme])
+	}, [darkTheme, skip])
 
 	return (
 		<div className="navbar bg-base-300 flex items-center">

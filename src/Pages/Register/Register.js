@@ -18,7 +18,7 @@ function Register() {
 				setUser(result.user);
 				updateUserProfile(name, url)
 					.then(() => {
-						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render. simply by doing this header shows image after registering
+						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render. simply by doing this, header shows image after registering
 						const newUserObj = { ...result.user };
 						setUser(newUserObj);
 					})
@@ -49,7 +49,7 @@ function Register() {
 					<label htmlFor="password">Password</label>
 					<input id="password" type="password" placeholder="Password" name="password" className="input input-bordered input-info w-full max-w-xs" />
 				</div>
-				<button className="btn glass">Register</button>
+				<button className="btn">Register</button>
 			</div>
 			<span className="text-center"><small>Already have an account? <Link to='/login' className="btn-link">Login here</Link>.</small></span>
 		</form>
