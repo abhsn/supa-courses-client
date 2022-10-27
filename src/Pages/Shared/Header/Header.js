@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { FcGraduationCap } from "react-icons/fc";
+import { ThemeContext } from "../../../Layout/Main";
 
-function Header({ darkTheme, setDarkTheme }) {
+function Header() {
 	const { user, logOut } = useContext(AuthContext);
+	const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+
 	const [skip, setSkip] = useState(true);
 
 	const handleLogOut = () => {
