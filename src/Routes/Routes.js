@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import GetPremium from "../Pages/GetPremium/GetPremium";
@@ -21,6 +22,10 @@ export const routes = createBrowserRouter([
 				path: '/courses',
 				element: <Courses />,
 				loader: async () => fetch('https://b610-lerning-platform-server-side-abhsn.onrender.com/api/courses')
+			},
+			{
+				path: '/blog',
+				element: <Blog />
 			},
 			{
 				path: '/course/:id',

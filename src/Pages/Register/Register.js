@@ -4,13 +4,8 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 function Register() {
 
-	const { user, signUp, setUser, updateUserProfile } = useContext(AuthContext);
+	const { signUp, setUser, updateUserProfile } = useContext(AuthContext);
 	const navigate = useNavigate();
-
-	// sends back to previous location if user is logged in
-	if (user?.displayName) {
-		navigate(-1);
-	}
 
 	const handleSubmit = e => {
 		e.preventDefault();

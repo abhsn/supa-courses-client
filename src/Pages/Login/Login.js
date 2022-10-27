@@ -6,15 +6,10 @@ import { FaGithub } from "react-icons/fa";
 
 function Login() {
 
-	const { user, signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+	const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const from = location.state?.from?.pathname || "/";
-
-	// sends back to previous location if user is logged in
-	if (user?.displayName) {
-		navigate(-1);
-	}
 
 	// const handleSubmit = e => {
 	// 	e.preventDefault();
