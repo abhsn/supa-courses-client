@@ -32,7 +32,7 @@ function Main() {
 	return (
 		<AppearanceContext.Provider value={appearanceInfo}>
 			<div className="flex flex-col min-h-screen h-full" data-theme={darkTheme ? 'night' : 'cupcake'}>
-				<div className="sticky top-0">
+				<div className="sticky top-0 z-10">
 					<Header />
 				</div>
 				<div className="py-8 flex-grow">
