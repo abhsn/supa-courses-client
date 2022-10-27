@@ -9,7 +9,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 
 function CourseDetails() {
 	const [course] = useLoaderData();
-	const { id, name, img, details, author, rating, price } = course;
+	const { id, name, img, details, author } = course;
 
 	const [courses, setCourses] = useState([]);
 
