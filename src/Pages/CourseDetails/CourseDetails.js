@@ -1,8 +1,11 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { FaCrown } from "react-icons/fa";
+import { FaCrown, FaFilePdf } from "react-icons/fa";
+import { MdOutlineDownloading } from "react-icons/md";
 import LeftSideNav from "../../Components/LeftSideNav/LeftSideNav";
 import { useEffect } from "react";
 import { useState } from "react";
+import SaveAsPDF from "../../Components/SaveAsPDF/SaveAsPDF";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 function CourseDetails() {
 	const [course] = useLoaderData();
@@ -23,9 +26,19 @@ function CourseDetails() {
 	return (
 		<div className="flex">
 			<LeftSideNav courses={courses} />
-			<div className="flex flex-col w-9/12 mx-auto items-center gap-8">
-				<h2 className="text-4xl font-bold">{name}</h2>
-				<p>{details}</p>
+			<div className="flex flex-col w-9/12 items-center mx-auto gap-8">
+				<div className="flex flex-col gap-3">
+					<h2 className="text-4xl font-bold flex items-center gap-5">{name}
+						<span className="cursor-pointer" title="Download this page">
+							<PDFDownloadLink document={<SaveAsPDF course={course} />} fileName={name}>
+								{({ loading }) => (loading ? <MdOutlineDownloading /> : <FaFilePdf />)}
+							</PDFDownloadLink>
+						</span>
+					</h2>
+
+					<p>{details}</p>
+					<p><small>By <span className="font-bold">{author}</span></small></p>
+				</div>
 				<img src={img} alt={name} className="w-9/12 mx-auto" />
 				<div className="flex gap-4">
 					<button onClick={() => navigate(-1)} className='btn btn'>Go Back</button>
