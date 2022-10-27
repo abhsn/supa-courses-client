@@ -6,7 +6,7 @@ Contents
 * [Technologies](#technologies)
 
 ### Live Website
-To have the live experience what it looks like. Please [click here](https://creative-wisp-3681ca.netlify.app "Supa Courses")
+To have the live experience what it looks like. Please [click here](https://creative-wisp-3681ca.netlify.app "Supa Courses").
 
 ### Features
 Here's the top feature of this website
