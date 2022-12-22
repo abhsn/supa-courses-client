@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 function Register() {
@@ -9,6 +9,8 @@ function Register() {
 	const { signUp, setUser, updateUserProfile } = useContext(AuthContext);
 
 	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || "/";
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -35,7 +37,7 @@ function Register() {
 						// needs to create a new object without reference since react thinks we are assigning same value to setUser which causes no render. simply by doing this, header shows image after registering
 						const newUserObj = { ...result.user };
 						setUser(newUserObj);
-						navigate('/');
+						navigate(from, { replace: true });
 					})
 					.catch(err => setError(err.message));
 			})

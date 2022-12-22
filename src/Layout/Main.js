@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createContext } from "react";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../Pages/Shared/Footer/Footer";
 import Header from "../Pages/Shared/Header/Header";
 
 export const AppearanceContext = createContext();
@@ -38,6 +39,7 @@ function Main() {
 				<div className="py-8 flex-grow">
 					<Outlet />
 				</div>
+				<Footer />
 			</div>
 		</AppearanceContext.Provider>
 	);
