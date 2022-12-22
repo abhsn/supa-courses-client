@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Newsletter from "./Newsletter";
 import Qoutes from "./Qoutes";
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
 				</div>
 			</div>
 			<Qoutes />
+			<Newsletter />
 		</>
 	);
 }
