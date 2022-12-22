@@ -30,7 +30,7 @@ function Course({ course }) {
 	}
 
 	return (
-		<div onClick={handleNavigate} className="flex flex-col shadow-2xl hover:cursor-pointer rounded-md border border-slate-600">
+		<div onClick={handleNavigate} className="flex cursor-pointer flex-col shadow-2xl hover:cursor-pointer rounded-md border border-slate-600">
 			<img src={img} alt={name} className="object-cover rounded-md rounded-bl-none rounded-br-none" />
 			<div className="p-4">
 				<h4 className="text-xl font-bold">{name}</h4>

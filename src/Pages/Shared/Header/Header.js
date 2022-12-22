@@ -39,7 +39,7 @@ function Header() {
 			</div>
 
 			{/* right side nav */}
-			<div className={`fixed w-1/4 bg-base-300 top-16 right-0 h-full ${menu ? 'flex' : 'hidden'} flex-col py-4 gap-4 overflow-scroll md:hidden`}>
+			<div className={`fixed w-full bg-base-300 top-16 right-0 h-full ${menu ? 'flex' : 'hidden'} flex-col py-4 gap-4 overflow-scroll md:hidden`}>
 				<input onChange={() => {
 					setDarkTheme(!darkTheme);
 				}}
@@ -47,11 +47,11 @@ function Header() {
 					type="checkbox"
 					className={`toggle toggle-lg bg-slate-400 checked:bg-slate-400 checked:border-slate-400 relative ${(darkTheme) ? "before:content-['🌞'] before:left-[2px] before:absolute before:text-2xl" : "after:content-['🌙'] after:absolute after:text-2xl after:right-[2px]"}`} />
 
-				<Link to="/courses" className="btn btn-ghost normal-case text-xl">Courses</Link>
-				<Link to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
-				<Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
+				<Link onClick={() => setMenu(!menu)} to="/courses" className="btn btn-ghost normal-case text-xl">Courses</Link>
+				<Link onClick={() => setMenu(!menu)} to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
+				<Link onClick={() => setMenu(!menu)} to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
 				{!user ?
-					<Link to="/login" className="btn btn-ghost normal-case text-xl">Login</Link> : ''
+					<Link onClick={() => setMenu(!menu)} to="/login" className="btn btn-ghost normal-case text-xl">Login</Link> : ''
 				}
 			</div>
 			{/* photo on the right for mobile device */}

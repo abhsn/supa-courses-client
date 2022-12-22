@@ -6,12 +6,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import SaveAsPDF from "../../Components/SaveAsPDF/SaveAsPDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import { BsFillArrowRightSquareFill } from 'react-icons/bs';
 
 function CourseDetails() {
 	const [course] = useLoaderData();
 	const { id, name, img, details, author } = course;
 
 	const [courses, setCourses] = useState([]);
+	const [hide, setHide] = useState(true);
 
 	useEffect(() => {
 		fetch('https://b610-lerning-platform-server-side-abhsn.onrender.com/api/courses')
@@ -25,7 +27,11 @@ function CourseDetails() {
 	const navigate = useNavigate();
 	return (
 		<div className="flex">
-			<LeftSideNav courses={courses} />
+			{!hide && <LeftSideNav hide={hide} setHide={setHide} courses={courses} />}
+
+			{/* cursor to show navbar */}
+			<div onClick={() => setHide(false)} className={`${(hide) ? 'block' : 'hidden'} block md:hidden fixed top-1/2 translate-y-[-50%] text-right w-10 h-10 font-bold text-4xl hover:opacity-100 cursor-pointer`} title="Click to expand"><BsFillArrowRightSquareFill /></div>
+
 			<div className="flex flex-col w-9/12 items-center mx-auto gap-8">
 				<div className="flex flex-col gap-3">
 					<h2 className="text-4xl font-bold flex items-center gap-5">{name}
